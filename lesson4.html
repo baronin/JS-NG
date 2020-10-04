@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My page</title>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+<h2>Welcome to my <a href="https://github.com/baronin/JS-NG">page</a></h2>
+<p>This is the first paragraph</p>
+this is end
+<div class="tasks__wrap">
+  <ol class="tasks__list" start="2">
+    <li class="task__item">
+      <h3> Алерт по нажатию на кнопку</h3>
+      <button class="task__btn task__btn_two">Нажми на меня</button>
+    </li>
+    <li class="task__item">
+      <h3>Вывод содержимого инпута в Alert по нажатию на кнопку</h3>
+      <button class="task__btn task__btn_three">Нажми на меня</button>
+      <input class="task__input task__input_three" type="text" placeholder="Сообщение">
+    </li>
+    <li class="task__item">
+      <h3>Квадрат содержимого инпута вывести в Alert по нажатию на кнопку (и что будет если ввести текст? как этого избежать?))</h3>
+      <button class="task__btn task__btn_four">Нажми на меня</button>
+      <input class="task__input task__input_four" type="text" placeholder="Введите число">
+    </li>
+    <li class="task__item">
+      <h3>По нажатию на кнопку меняется ее текст</h3>
+      <button class="task__btn task__btn_text">Меняем текст и рандомный цвет</button>
+    </li>
+    <li class="task__item">
+      <h3>Работа с CSS - по нажатию на кнопку меняется цвет текста в инпуте</h3>
+      <button class="task__btn task___btn_change-color">Нажми на меня</button>
+      <input class="task__input task__input_change-color" type="text" placeholder="Какойто текст" value="tesr">
+    </li>
+    <li class="task__item">
+      <h3>Обмен содержимым между двумя инпутами по нажатию на кнопку*</h3>
+      <button class="task__btn task___btn_swap">Нажми на меня</button>
+      <input class="task__input task__swap1" type="text" value="!!!">
+      <input
+    <li class="task__item">
+      <h3>Блокирование полей ввода*</h3>
+      <button class="task__btn task___btn_disable">Нажми на меня</button>
+      <button class="task__btn task___btn_unlock">Нажми на меня</button>
+      <input class="task__input task__input_disabled" type="text" value="Какой-то текст">
+    </li>
+  </ol>
+
+  <div class="square">
+    Наведи на меня а потом убери
+  </div>
+
+  <h2>Calculator</h2>
+  <span>нужно еще поработать с ним</span>
+  <div id="app">
+    <form action="#">
+      <div class="set-number"></div>
+      <input type="text" class="input" maxlength="10" />
+      <div class="output"></div>
+      <div class="remove-block">
+        <button type="button">Remove</button>
+      </div>
+      <div class="calculation-wrap">
+        <div class="symbols">
+          <button class="set-symbols" type="button">C</button>
+          <button class="set-symbols" type="button">()</button>
+          <button class="set-symbols" type="button">%</button>
+          <button class="set-symbols" type="button">÷</button>
+        </div>
+
+        <div class="symbols">
+          <button class="set-symbols" type="button">7</button>
+          <button class="set-symbols" type="button">8</button>
+          <button class="set-symbols" type="button">9</button>
+          <button class="set-symbols" type="button">*</button>
+        </div>
+
+        <div class="symbols">
+          <button class="set-symbols" type="button">4</button>
+          <button class="set-symbols" type="button">5</button>
+          <button class="set-symbols" type="button">6</button>
+          <button class="set-symbols" type="button">-</button>
+        </div>
+
+        <div class="symbols">
+          <button class="set-symbols" type="button">3</button>
+          <button class="set-symbols" type="button">2</button>
+          <button class="set-symbols" type="button">1</button>
+          <button class="set-symbols" type="button">+</button>
+        </div>
+
+        <div class="symbols">
+          <button class="set-symbols" type="button"></button>
+          <button class="set-symbols" type="button">0</button>
+          <button class="set-symbols" type="button">,</button>
+          <button class="set-symbols" type="button">=</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script src="src/js/index.js"></script>
+</body>
+</html>
