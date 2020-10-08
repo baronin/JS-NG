@@ -99,5 +99,28 @@
         }
       });
     });
+
+    let lang = 'ru';
+    let arr;
+    // if(lang === 'ru') {
+    //   arr = ['пн','вт', 'ср','чт','пт','сб','вс',];
+    //   console.log(arr);
+    // }
+    // if(lang === 'en') {
+    //   arr = ['mon','th', 'wen','th','fr','st','sunday',];
+    // }
+
+    switch (lang) {
+      case 'ru':
+        arr = ['пн','вт', 'ср','чт','пт','сб','вс',];
+        break;
+      case 'en':
+        arr = ['mon','th', 'wen','th','fr','st','sunday',];
+        break;
+      default:
+        arr = '';
+    }
+    console.log(arr);
+
   })
 })()
