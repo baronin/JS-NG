@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 6</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Выводим четные числа</h1>
+  <div class="numbers" style="display: flex;flex-direction: column; flex-wrap: wrap;margin: 0;font-size: 13px; max-height: 210px;">
+  </div>
+  <h2>Объекты</h2>
+  <div class="objects">
+  </div>
+  <h2>Массивы</h2>
+  <div class="arrays"></div>
+</div>
+<script>
+  console.log('if switch');
+
+  let a = 'test';
+  if (a === 'test') {
+    console.log('верно');
+  } else {
+    console.log('неверно');
+  }
+
+  let b = 1;
+  if (Number(b) === 1) {
+    console.log('верно: ', b);
+  } else {
+    console.log('неверно: ', b);
+  }
+
+  let c = 1;
+  switch (c) {
+    case 1:
+      console.log('зима: ', c);
+      break;
+    case 2:
+      console.log('весна: ', c);
+      break;
+    case 3:
+      console.log('лето: ', c);
+      break;
+    case 4:
+      console.log('осень: ', c);
+      break;
+    default:
+      console.log('выбрать нужно месяц 1 2 3 или 4');
+      break;
+  }
+
+  function getRandomArbitrary(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  let month = getRandomArbitrary(1, 12);
+  switch (month) {
+    case 12:
+    case 1:
+    case 2:
+      console.log('зима: ', month);
+      break;
+    case 3:
+    case 4:
+    case 5:
+      console.log('весна: ', month);
+      break;
+    case 6:
+    case 7:
+    case 8:
+      console.log('лето: ', month);
+      break;
+    case 9:
+    case 10:
+    case 11:
+      console.log('осень: ', month);
+      break;
+    default:
+      console.log('выбрать нужно месяц 1 2 3 или 4: сейчас месяц под номером ', month);
+      break;
+  }
+
+  let str = 'abcde';
+  let firstLetter = str.slice(0, 1);
+  if (firstLetter === 'a' || firstLetter === 'а') {
+    console.log('да');
+  } else {
+    console.log('нет');
+  }
+
+  // Циклы
+  console.log('Циклы');
+  let numbers = document.querySelector('.numbers');
+  for (let i = 0; i <= 50; i++) {
+    numbers.innerHTML += `<p>${i++}</p>`;
+  }
+  let arr = [];
+  for (let i = 1; i <= 10; i++) {
+    arr.push(i);
+  }
+
+  // Объекты
+  console.log('Объекты');
+
+  let objects = {a: 1, b: 2, c: 3};
+  let objectsSelector = document.querySelector('.objects');
+  objectsSelector.innerHTML += `<p>${objects.c}</p>`;
+  objectsSelector.innerHTML += `<p>${objects['c']}</p>`;
+
+  let salary = {
+    vanya: '500$',
+    tanya: '600$'
+  }
+  objectsSelector.innerHTML += `<div> зарплата Вани ${salary.vanya}, a Тани  ${salary.tanya}</div>`
+
+  console.log('Массивы');
+  let arrsSelector = document.querySelector('.arrays');
+  let arr2 = ['code ', 'is', 'magic'];
+  arr2[2] = 'simple';
+  arrsSelector.innerHTML += `<p>${arr2}</p>`;
+
+</script>
+</body>
+</html>
