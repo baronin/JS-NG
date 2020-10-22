@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html,
+body {
+	/*background-color: rgb(95 150 215);*/
+	background-color: #419BD3;
+    height: auto;
+    width: 100%;
+}
+input[type='radio'] + label {
+    padding-left: 24px;
+    background: url('img/radio_off.png') transparent no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    height: 17px;
+}
+input[type='radio']:checked + label {
+    background: url('img/radio_on.png') transparent no-repeat;
+    background-size: contain;
+}
+input[type='radio']:checked + label + img {
+    display: block !important;
+}
+input[type='radio'] {
+    display: none;
+}
+#menuNav img {
+    display: none;
+    position: absolute;
+    left: 37%;
+    width: 100px;
+
+}
+
+#menuNav {
+    margin-left: 10%;
+}
+
+#first {
+    margin-top: -17px;
+}
+
+#second {
+    margin-top: -35px;
+}
+
+#third {
+    margin-top: -53px;
+}
+
+main {
+    margin-left: 10%;
+    width: 90%;
+}
+
+main img {
+    float: left;
+}
+
+h1 {
+    color: white;
+    font-weight: 100;
+    margin-left: 80px;
+    margin-top: 10px;
+
+}
+
+h2 {
+    color: white;
+    font-weight: 100;
+    margin-left: 80px;
+}
+
+p {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+.title {
+    border-radius: 5px;
+    border: solid #d6d6d6 1px;
+    clear: right;
+    float: right;
+    height: 30px;
+    margin-left: 60px;
+    margin-right: 57%;
+    margin-top: -17px;
+
+}
+.section {
+    margin-top: 35px;
+}
+
+#listNav {
+    margin-left: 10%;
+}
+
+input[type='checkbox'] + label {
+    padding-left: 24px;
+    background: url('img/checkbox_off.png') transparent no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    height: 17px;
+}
+input[type='checkbox']:checked + label {
+    background: url('img/checkbox_on.png') transparent no-repeat;
+    background-size: contain;
+}
+input[type='checkbox'] {
+    display: none;
+}
+
+#textBlock p {
+    float: left;
+    width: 100px;
+}
+#textBlock label {
+    clear:left;
+}
+#mainY {
+    margin-left: 15px;
+}
+#mainText {
+    border-radius: 5px;
+    border: solid #d6d6d6 1px;
+    height: 80px;
+    width: 400px;
+}
