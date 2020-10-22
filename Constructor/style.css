@@ -50,11 +50,6 @@ input[type='radio'] {
     margin-top: -53px;
 }
 
-main {
-    margin-left: 10%;
-    width: 90%;
-}
-
 main img {
     float: left;
 }
@@ -62,15 +57,10 @@ main img {
 h1 {
     color: white;
     font-weight: 100;
-    margin-left: 80px;
-    margin-top: 10px;
-
 }
 
 h2 {
     color: white;
-    font-weight: 100;
-    margin-left: 80px;
 }
 
 p {
@@ -84,14 +74,8 @@ label {
 .title {
     border-radius: 5px;
     border: solid #d6d6d6 1px;
-    clear: right;
-    float: right;
-    height: 30px;
-    margin-left: 60px;
-    margin-right: 57%;
-    margin-top: -17px;
-
 }
+
 .section {
     margin-top: 35px;
 }
@@ -130,4 +114,41 @@ input[type='checkbox'] {
     border: solid #d6d6d6 1px;
     height: 80px;
     width: 400px;
+}
+
+/* other styles */
+.main {
+  padding: 40px;
+}
+
+.main__container {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.input {
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+}
+
+
+.logo-wrap {
+  max-width: 100px;
+  width: 100%;
+  padding-right: 30px;
+}
+
+.logo-wrap img {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+}
+
+.header-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
 }
