@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Constructor</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-  <main class="main">
-    <div class="main__container">
-      <img src="img/logo.png" id="logo">
-      <h1>Конструктор сайта</h1>
-      <h2>Выберите параметры для создания вашего сайта:</h2>
-      <form class="constructor" id="constructor" name="constructor">
+  <div class="app">
+    <main class="main">
+      <div class="main__container">
+        <img src="img/logo.png" id="logo">
+        <h1>Конструктор сайта</h1>
+        <p>Выберите параметры для создания вашего сайта:</p>
+        <form class="constructor" id="constructor" name="constructor">
           <div class="section">
-              <p>Название</p>
-              <input class="input" type="text" name="title" id="title" placeholder="MySite">
+            <label class="label" for="title">Название</label>
+            <input class="input" type="text" name="title" id="title" placeholder="MySite">
           </div>
           <div class="section">
-              <p>Слоган</p>
-              <input class="input" type="text" name="description" id="description" placeholder="Welcome to my site!">
+            <label class="label" for="description">Слоган</label>
+            <input class="input" type="text" name="description" id="description" placeholder="Welcome to my site!">
           </div>
 
           <div class="section">
-            <p>Логотип</p>
+            <label class="label" for="logoConstructor">Логотип</label>
             <input class="input" type="text" name="logo" id="logoConstructor" placeholder="Url for logotype!">
           </div>
 
@@ -36,16 +40,62 @@
             <input class="input radio__menu" type="radio" name="menuPosition" id="verticalRight" value="verticalRight">
             <label for="verticalRight">Вертикальное справа</label><br>
           </div>
-
-
+          <div class="section">
+            <p>Пункты меню</p>
+            <input type="checkbox" id="home">
+            <label class="labelNameMenu" for="home">Home</label>
+            <input type="checkbox" id="about">
+            <label class="labelNameMenu" for="about">About</label>
+            <input type="checkbox" id="service">
+            <label class="labelNameMenu" for="service">Service</label>
+            <input type="checkbox" id="portfolio">
+            <label class="labelNameMenu" for="portfolio">Portfolio</label>
+            <input type="checkbox" id="contacts">
+            <label class="labelNameMenu" for="contacts">Contacts</label>
+          </div>
 
           <div class="section">
-              <input type="button" name="submit" id="submit" value="Отправить">
-              <input type="reset" name="reset" id="reset" value="Очистить">
+            <p>Создать основной текстовый блок</p>
+            <div class="wrap">
+              <div class="wrap-radio">
+                <input type="radio" id="textYes" name="mainText">
+                <label for="textYes">Да</label>
+                <input type="radio" id="textNo" name="mainText">
+                <label for="textNo">Нет</label>
+              </div>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
           </div>
-      </form>
-    </div>
-  </main>
+
+          <div class="section">
+            <p>Создать слайдер</p>
+            <input type="radio" id="sliderYes" name="slider">
+            <label for="sliderYes">Да</label>
+            <input type="radio" id="sliderNo" name="slider">
+            <label for="sliderNo">Нет</label>
+            <div class="add-photo">
+              <label for="addPhoto">Добавить фото</label>
+              <input type="text" id="addPhoto" placeholder="Введите URL изображения">
+              <button type="button"> Добавить еще </button>
+            </div>
+          </div>
+
+          <div class="section">
+            <label for="bgColor">Основной цвет сайта</label>
+            <input type="color" id="bgColor" value="#68ca25">
+            <label for="textColor">Основной цвет текста</label>
+            <input type="color" id="textColor" value="#ffffff">
+          </div>
+          <div class="section">
+            <input type="button" name="submit" id="submit" value="Отправить">
+            <input type="reset" name="reset" id="reset" value="Очистить">
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="./index.js"></script>
 </body>
+
 </html>

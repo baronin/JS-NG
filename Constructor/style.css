@@ -1,140 +1,131 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 html,
 body {
-	/*background-color: rgb(95 150 215);*/
-	background-color: #419BD3;
-    height: auto;
-    width: 100%;
+  /*background-color: rgb(95 150 215);*/
+  background-color: #419bd3;
+  height: auto;
+  width: 100%;
 }
-input[type='radio'] + label {
-    padding-left: 24px;
-    background: url('img/radio_off.png') transparent no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    height: 17px;
+input[type="radio"] + label {
+  padding-left: 24px;
+  background: url("img/radio_off.png") transparent no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 17px;
 }
-input[type='radio']:checked + label {
-    background: url('img/radio_on.png') transparent no-repeat;
-    background-size: contain;
+input[type="radio"]:checked + label {
+  background: url("img/radio_on.png") transparent no-repeat;
+  background-size: contain;
 }
-input[type='radio']:checked + label + img {
-    display: block !important;
+input[type="radio"]:checked + label + img {
+  display: block !important;
 }
-input[type='radio'] {
-    display: none;
+input[type="radio"] {
+  display: none;
 }
 #menuNav img {
-    display: none;
-    position: absolute;
-    left: 37%;
-    width: 100px;
-
+  display: none;
+  position: absolute;
+  left: 37%;
+  width: 100px;
 }
 
 #menuNav {
-    margin-left: 10%;
+  margin-left: 10%;
 }
 
 #first {
-    margin-top: -17px;
+  margin-top: -17px;
 }
 
 #second {
-    margin-top: -35px;
+  margin-top: -35px;
 }
 
 #third {
-    margin-top: -53px;
+  margin-top: -53px;
 }
 
 main img {
-    float: left;
+  margin-right: 20px;
 }
 
 h1 {
-    color: white;
-    font-weight: 100;
+  color: white;
+  font-weight: 100;
 }
 
 h2 {
-    color: white;
+  color: white;
 }
 
 p {
-    color: white;
+  color: white;
 }
 
 label {
-    color: white;
+  color: white;
 }
 
 .title {
-    border-radius: 5px;
-    border: solid #d6d6d6 1px;
+  border-radius: 5px;
+  border: solid #d6d6d6 1px;
 }
 
 .section {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
 #listNav {
-    margin-left: 10%;
+  margin-left: 10%;
 }
 
-input[type='checkbox'] + label {
-    padding-left: 24px;
-    background: url('img/checkbox_off.png') transparent no-repeat;
-    background-size: contain;
-    cursor: pointer;
-    height: 17px;
+input[type="checkbox"] + label {
+  padding-left: 24px;
+  background: url("img/checkbox_off.png") transparent no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  height: 17px;
 }
-input[type='checkbox']:checked + label {
-    background: url('img/checkbox_on.png') transparent no-repeat;
-    background-size: contain;
+input[type="checkbox"]:checked + label {
+  background: url("img/checkbox_on.png") transparent no-repeat;
+  background-size: contain;
 }
-input[type='checkbox'] {
-    display: none;
+input[type="checkbox"] {
+  display: none;
 }
 
 #textBlock p {
-    float: left;
-    width: 100px;
+  float: left;
+  width: 100px;
 }
 #textBlock label {
-    clear:left;
+  clear: left;
 }
 #mainY {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 #mainText {
-    border-radius: 5px;
-    border: solid #d6d6d6 1px;
-    height: 80px;
-    width: 400px;
+  border-radius: 5px;
+  border: solid #d6d6d6 1px;
+  height: 80px;
+  width: 400px;
 }
 
 /* other styles */
-.main {
-  padding: 40px;
-}
-
-.main__container {
-  max-width: 700px;
+.app {
+  max-width: 960px;
   width: 100%;
   margin: 0 auto;
-}
-
-.input {
-  padding: 10px;
+  padding: 20px;
 }
 
 .header {
   display: flex;
 }
-
 
 .logo-wrap {
   max-width: 100px;
@@ -151,4 +142,70 @@ input[type='checkbox'] {
 .header-content h1 {
   font-size: 2em;
   margin-bottom: 20px;
+}
+
+.input {
+  padding: 10px;
+}
+
+.label {
+  display: inline-block;
+  max-width: 100px;
+  width: 100%;
+}
+
+.main {
+  display: grid;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+nav a {
+  padding: 10px;
+  margin-left: -10px;
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: aquamarine;
+}
+.main.nav-vertical nav {
+  padding-top: 0;
+  flex-direction: column;
+}
+.main.nav-left {
+  grid-template-columns: 2fr 10fr;
+  grid-template-areas: "nav content";
+  grid-gap: 10px;
+}
+.main.nav-right {
+  grid-template-columns: 10fr 2fr;
+  grid-template-areas: "content nav";
+  grid-gap: 10px;
+}
+
+.main.nav-right nav {
+}
+
+.swiper-custom-wrap {
+  max-width: 300px;
+  width: 100%;
+  margin-left: 0;
+}
+
+.content {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+}
+
+.content p {
+  margin-bottom: 30px;
 }
