@@ -3,6 +3,7 @@ const app = document.querySelector('.app');
 let title = document.querySelector('#title');
 let description = document.querySelector('#description');
 let logoType = document.querySelector('#logoConstructor');
+let textArea = document.querySelector('#textArea');
 
 const menuPositionClass = {
   vertical: 'nav-vertical',
@@ -11,6 +12,20 @@ const menuPositionClass = {
 };
 
 let submit = document.querySelector('#submit');
+let inputNoText = document.querySelector('#textNo');
+let inputYesText = document.querySelector('#textYes');
+if (inputNoText) {
+  inputNoText.addEventListener('click', function () {
+    textArea.setAttribute('disabled', true);
+  });
+}
+if (inputYesText) {
+  inputYesText.addEventListener('click', function () {
+    if (textArea.getAttribute('disabled')) {
+      textArea.removeAttribute('disabled');
+    }
+  });
+}
 
 function header(logo, slogan, desc) {
   let imgLogo;
@@ -33,22 +48,39 @@ function header(logo, slogan, desc) {
 
 function nav() {
   let createMenu = document.querySelectorAll('input[type="checkbox"]');
-  let labelNameMenu = document.querySelectorAll('.labelNameMenu');
-  let menu = '';
-  labelNameMenu.forEach(function (item) {
-    console.log('', item);
-  });
+  let menuLinks = '';
+
   createMenu.forEach(function (item) {
     if (item.checked) {
       item.labels.forEach(function (test) {
-        menu += `<a href="#" class="nav">${test.textContent}</a>`;
+        menuLinks += `<a href="#" class="nav">${test.textContent}</a>`;
       });
     }
   });
-  return `
+  if (menuLinks) {
+    return `
     <nav>
-      ${menu}
+      ${menuLinks}
     </nav>
+  `;
+  } else {
+    return ' ';
+  }
+}
+
+function content() {
+  const wrapRadio = document.querySelector('.wrap-radio');
+  let inputsRadio = wrapRadio.querySelectorAll('input[name="mainText"]');
+  let contentText = '';
+  inputsRadio.forEach(function (item) {
+    if (item.checked) {
+      contentText = textArea.value;
+    }
+  });
+  return `
+    <div class="content">
+      <p>${contentText}</p>
+    </div>
   `;
 }
 
@@ -57,11 +89,9 @@ function main() {
   let positionMenuValue = '';
   nameMenu.forEach(function (item) {
     if (item.checked) {
-      console.log(item.value);
       positionMenuValue = item.value;
     }
   });
-  console.log(positionMenuValue);
   let navClass = '';
   if (positionMenuValue === 'verticalLeft') {
     navClass = menuPositionClass.vertical + ' ' + menuPositionClass.left;
@@ -72,6 +102,7 @@ function main() {
   return `
     <main class="main ${navClass}">
       ${nav()}
+      ${content()}
     </main>
   `;
 }
