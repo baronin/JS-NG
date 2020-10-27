@@ -12,6 +12,7 @@ const menuPositionClass = {
 };
 
 let submit = document.querySelector('#submit');
+let addPhotoBtn = document.querySelector('#addPhoto');
 let inputNoText = document.querySelector('#textNo');
 let inputYesText = document.querySelector('#textYes');
 if (inputNoText) {
@@ -84,6 +85,22 @@ function content() {
   `;
 }
 
+function addPhoto() {
+  let urls = [];
+
+  let urlPhoto = document.querySelectorAll('.urlPhoto');
+  if(urlPhoto) {
+    urlPhoto.forEach(function(item) {
+      console.log(item.value);
+      if (item.value) {
+        console.log(item.value);
+        urls.push(item.value);
+      }
+    });
+  }
+  return urls;
+}
+
 function main() {
   let nameMenu = document.querySelectorAll('.input[name="menuPosition"]');
   let positionMenuValue = '';
@@ -103,6 +120,7 @@ function main() {
     <main class="main ${navClass}">
       ${nav()}
       ${content()}
+      ${addPhoto()}
     </main>
   `;
 }
@@ -123,8 +141,39 @@ function getData() {
   }
 }
 
+
 if (submit) {
-  submit.addEventListener('click', getData);
+  submit.addEventListener('click', function() {
+    if (textArea.value) {
+      getData();
+      return;
+    }
+    console.log('click');
+    let wrapSelector = document.querySelector('.wrap');
+    let p = document.createElement('p');
+    p.style.color = 'red';
+    p.innerHTML = 'Заполните текст';
+    wrapSelector.appendChild(p);
+    setInterval(function() {
+      p.remove();
+    }, 1000);
+  });
+}
+
+if (addPhotoBtn) {
+  let inputListSelector = document.querySelector('.input-list');
+
+  addPhotoBtn.addEventListener('click', function() {
+    let innerWrapPhotoEl = document.createElement('div');
+    innerWrapPhotoEl.classList.add('input-wrap-photo');
+    let labelEl = document.createElement('label');
+    labelEl.innerHTML = '-';
+    innerWrapPhotoEl.appendChild(labelEl);
+    let inputEl = document.createElement('input');
+    inputEl.setAttribute('placeholder', 'Введите URL изображения');
+    innerWrapPhotoEl.appendChild(inputEl);
+    inputListSelector.appendChild(innerWrapPhotoEl);
+  });
 }
 
 let swiperContainer = document.querySelector('.swiper-container');

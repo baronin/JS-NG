@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Constructor</title>
+  <link rel="shortcut icon" href="./angular.png" type="image/png">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
@@ -32,7 +33,7 @@
           </div>
 
           <div class="section">
-            <p>Меню</p>
+            <h2>Меню</h2>
             <input class="input radio__menu" type="radio" name="menuPosition" id="horizont" value="horizont">
             <label for="horizont">Горизонтальное</label><br>
             <input class="input radio__menu" type="radio" name="menuPosition" id="verticalLeft" value="verticalLeft">
@@ -41,7 +42,7 @@
             <label for="verticalRight">Вертикальное справа</label><br>
           </div>
           <div class="section">
-            <p>Пункты меню</p>
+            <h2>Пункты меню</h2>
             <input type="checkbox" id="home">
             <label class="labelNameMenu" for="home">Home</label>
             <input type="checkbox" id="about">
@@ -55,10 +56,10 @@
           </div>
 
           <div class="section">
-            <p>Создать основной текстовый блок</p>
+            <h2>Создать основной текстовый блок</h2>
             <div class="wrap">
               <div class="wrap-radio">
-                <input type="radio" id="textYes" name="mainText">
+                <input type="radio" id="textYes" name="mainText" checked>
                 <label for="textYes">Да</label>
                 <input type="radio" id="textNo" name="mainText">
                 <label for="textNo">Нет</label>
@@ -68,15 +69,22 @@
           </div>
 
           <div class="section">
-            <p>Создать слайдер</p>
-            <input type="radio" id="sliderYes" name="slider">
-            <label for="sliderYes">Да</label>
-            <input type="radio" id="sliderNo" name="slider">
-            <label for="sliderNo">Нет</label>
-            <div class="add-photo">
-              <label for="addPhoto">Добавить фото</label>
-              <input type="text" id="addPhoto" placeholder="Введите URL изображения">
-              <button type="button"> Добавить еще </button>
+            <h2>Создать слайдер</h2>
+            <div class="radio-wrap-slider">
+              <input type="radio" id="sliderYes" name="slider">
+              <label for="sliderYes">Да</label>
+              <input type="radio" id="sliderNo" name="slider">
+              <label for="sliderNo">Нет</label>
+            </div>
+
+            <div class="add-photos">
+              <div class="input-list">
+                <div class="input-wrap-photo">
+                  <label for="addPhoto">Добавить фото</label><input type="text" class="urlPhoto" placeholder="Введите URL изображения">
+                </div>
+              </div>
+
+              <button type="button" id="addPhoto"> Добавить еще </button>
             </div>
           </div>
 

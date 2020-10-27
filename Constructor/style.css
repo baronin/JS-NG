@@ -59,6 +59,7 @@ h1 {
 }
 
 h2 {
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -77,6 +78,7 @@ label {
 
 .section {
   margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 #listNav {
@@ -207,4 +209,17 @@ nav a:hover {
 
 .content p {
   margin-bottom: 30px;
+}
+
+.wrap-radio,
+.radio-wrap-slider,
+.input-wrap-photo {
+  margin-bottom: 15px;
+}
+
+.input-wrap-photo label {
+    display: inline-block;
+    max-width: 150px;
+    width: 100%;
+    margin-right: 5px;
 }
