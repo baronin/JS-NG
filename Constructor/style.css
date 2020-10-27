@@ -160,7 +160,7 @@ input[type="checkbox"] {
   padding-bottom: 40px;
 }
 nav {
-  grid-area: nav;
+
   display: flex;
   flex-wrap: wrap;
   padding-top: 40px;
@@ -177,8 +177,10 @@ nav a:hover {
   color: aquamarine;
 }
 .main.nav-vertical nav {
+  grid-area: nav;
   padding-top: 0;
   flex-direction: column;
+  align-items: flex-start;
 }
 .main.nav-left {
   grid-template-columns: 2fr 10fr;
@@ -189,9 +191,6 @@ nav a:hover {
   grid-template-columns: 10fr 2fr;
   grid-template-areas: "content nav";
   grid-gap: 10px;
-}
-
-.main.nav-right nav {
 }
 
 .swiper-custom-wrap {
