@@ -69,6 +69,21 @@ function nav() {
   }
 }
 
+function addPhoto() {
+  let urls = [];
+
+  let urlPhoto = document.querySelectorAll('.urlPhoto');
+  if (urlPhoto) {
+    urlPhoto.forEach(function (item) {
+      if (item.value) {
+        console.log(item.value);
+        urls.push(item.value);
+      }
+    });
+  }
+  return `<div class='swiper-slide' style='background-image="url(${urls})"'>test</div>`;
+}
+
 function content() {
   const wrapRadio = document.querySelector('.wrap-radio');
   let inputsRadio = wrapRadio.querySelectorAll('input[name="mainText"]');
@@ -81,24 +96,14 @@ function content() {
   return `
     <div class="content">
       <p>${contentText}</p>
+
+      <div class="swiper-container swiper-custom-wrap">
+          <div class="swiper-wrapper">
+            ${addPhoto()}
+          </div>
+      </div>
     </div>
   `;
-}
-
-function addPhoto() {
-  let urls = [];
-
-  let urlPhoto = document.querySelectorAll('.urlPhoto');
-  if(urlPhoto) {
-    urlPhoto.forEach(function(item) {
-      console.log(item.value);
-      if (item.value) {
-        console.log(item.value);
-        urls.push(item.value);
-      }
-    });
-  }
-  return urls;
 }
 
 function main() {
@@ -120,7 +125,6 @@ function main() {
     <main class="main ${navClass}">
       ${nav()}
       ${content()}
-      ${addPhoto()}
     </main>
   `;
 }
@@ -141,9 +145,8 @@ function getData() {
   }
 }
 
-
 if (submit) {
-  submit.addEventListener('click', function() {
+  submit.addEventListener('click', function () {
     if (textArea.value) {
       getData();
       return;
@@ -154,7 +157,7 @@ if (submit) {
     p.style.color = 'red';
     p.innerHTML = 'Заполните текст';
     wrapSelector.appendChild(p);
-    setInterval(function() {
+    setInterval(function () {
       p.remove();
     }, 1000);
   });
@@ -163,13 +166,14 @@ if (submit) {
 if (addPhotoBtn) {
   let inputListSelector = document.querySelector('.input-list');
 
-  addPhotoBtn.addEventListener('click', function() {
+  addPhotoBtn.addEventListener('click', function () {
     let innerWrapPhotoEl = document.createElement('div');
     innerWrapPhotoEl.classList.add('input-wrap-photo');
     let labelEl = document.createElement('label');
     labelEl.innerHTML = '-';
     innerWrapPhotoEl.appendChild(labelEl);
     let inputEl = document.createElement('input');
+    inputEl.classList.add('urlPhoto');
     inputEl.setAttribute('placeholder', 'Введите URL изображения');
     innerWrapPhotoEl.appendChild(inputEl);
     inputListSelector.appendChild(innerWrapPhotoEl);
