@@ -1,9 +1,12 @@
+const body = document.querySelector('body');
 const app = document.querySelector('.app');
 
 let title = document.querySelector('#title');
 let description = document.querySelector('#description');
 let logoType = document.querySelector('#logoConstructor');
 let textArea = document.querySelector('#textArea');
+let bgColor = document.querySelector('#bgColor');
+let textColor = document.querySelector('#textColor');
 
 const menuPositionClass = {
   vertical: 'nav-vertical',
@@ -149,9 +152,10 @@ if (submit) {
   submit.addEventListener('click', function () {
     if (textArea.value) {
       getData();
+      body.style.backgroundColor = bgColor.value;
+      body.style.color = textColor.value;
       return;
     }
-    console.log('click');
     let wrapSelector = document.querySelector('.wrap');
     let p = document.createElement('p');
     p.style.color = 'red';
