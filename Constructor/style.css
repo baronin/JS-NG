@@ -120,10 +120,18 @@ input[type="checkbox"] {
 
 /* other styles */
 .app {
-  max-width: 960px;
-  width: 100%;
   margin: 0 auto;
   padding: 20px;
+}
+
+.app__header {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 20px;
+}
+
+.app__header h1 {
+  margin-bottom: 20px;
 }
 
 .header {
@@ -162,8 +170,8 @@ input[type="checkbox"] {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-nav {
 
+nav {
   display: flex;
   flex-wrap: wrap;
   padding-top: 40px;
@@ -219,8 +227,35 @@ nav a:hover {
 }
 
 .input-wrap-photo label {
-    display: inline-block;
-    max-width: 150px;
-    width: 100%;
-    margin-right: 5px;
+  display: inline-block;
+  max-width: 150px;
+  width: 100%;
+  margin-right: 5px;
+}
+
+.constructor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+fieldset {
+  margin-bottom: 15px;
+  border: none;
+}
+
+#submit,
+#reset {
+  padding: 10px;
+  font-size: Aria;
+  font-weight: 500;
+  background-color: #fff;
+  border: 1px solid gainsboro;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#submit:hover,
+#reset:hover {
+  border-color: mediumslateblue;
+  background-color: #6bb800;
 }

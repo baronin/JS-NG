@@ -12,71 +12,85 @@
 
 <body>
   <div class="app">
-    <main class="main">
-      <div class="main__container">
+    <header class="app__header">
+      <div class="logo-wrap">
         <img src="img/logo.png" id="logo">
+      </div>
+      <div class="app__header-content">
         <h1>Конструктор сайта</h1>
         <p>Выберите параметры для создания вашего сайта:</p>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main__container">
         <form class="constructor" id="constructor" name="constructor">
-          <div class="section">
-            <label class="label" for="title">Название</label>
-            <input class="input" type="text" name="title" id="title" placeholder="MySite">
+          <div class="titles">
+            <div class="section">
+              <label class="label" for="title">Название</label>
+              <input class="input" type="text" name="title" id="title" placeholder="MySite">
+            </div>
+            <div class="section">
+              <label class="label" for="description">Слоган</label>
+              <input class="input" type="text" name="description" id="description" placeholder="Welcome to my site!">
+            </div>
+
+            <div class="section">
+              <label class="label" for="logoConstructor">Логотип</label>
+              <input class="input" type="text" name="logo" id="logoConstructor" placeholder="Url for logotype!">
+            </div>
           </div>
-          <div class="section">
-            <label class="label" for="description">Слоган</label>
-            <input class="input" type="text" name="description" id="description" placeholder="Welcome to my site!">
+          <div class="navigations">
+            <div class="section">
+              <h2>Меню</h2>
+              <input class="input radio__menu" type="radio" name="menuPosition" id="horizont" value="horizont">
+              <label for="horizont">Горизонтальное</label><br>
+              <input class="input radio__menu" type="radio" name="menuPosition" id="verticalLeft" value="verticalLeft">
+              <label for="verticalLeft">Вертикальное слева</label><br>
+              <input class="input radio__menu" type="radio" name="menuPosition" id="verticalRight" value="verticalRight">
+              <label for="verticalRight">Вертикальное справа</label><br>
+            </div>
+            <div class="section">
+              <h2>Пункты меню</h2>
+              <input type="checkbox" id="home">
+              <label class="labelNameMenu" for="home">Home</label>
+              <input type="checkbox" id="about">
+              <label class="labelNameMenu" for="about">About</label>
+              <input type="checkbox" id="service">
+              <label class="labelNameMenu" for="service">Service</label>
+              <input type="checkbox" id="portfolio">
+              <label class="labelNameMenu" for="portfolio">Portfolio</label>
+              <input type="checkbox" id="contacts">
+              <label class="labelNameMenu" for="contacts">Contacts</label>
+            </div>
           </div>
 
-          <div class="section">
-            <label class="label" for="logoConstructor">Логотип</label>
-            <input class="input" type="text" name="logo" id="logoConstructor" placeholder="Url for logotype!">
-          </div>
 
-          <div class="section">
-            <h2>Меню</h2>
-            <input class="input radio__menu" type="radio" name="menuPosition" id="horizont" value="horizont">
-            <label for="horizont">Горизонтальное</label><br>
-            <input class="input radio__menu" type="radio" name="menuPosition" id="verticalLeft" value="verticalLeft">
-            <label for="verticalLeft">Вертикальное слева</label><br>
-            <input class="input radio__menu" type="radio" name="menuPosition" id="verticalRight" value="verticalRight">
-            <label for="verticalRight">Вертикальное справа</label><br>
-          </div>
-          <div class="section">
-            <h2>Пункты меню</h2>
-            <input type="checkbox" id="home">
-            <label class="labelNameMenu" for="home">Home</label>
-            <input type="checkbox" id="about">
-            <label class="labelNameMenu" for="about">About</label>
-            <input type="checkbox" id="service">
-            <label class="labelNameMenu" for="service">Service</label>
-            <input type="checkbox" id="portfolio">
-            <label class="labelNameMenu" for="portfolio">Portfolio</label>
-            <input type="checkbox" id="contacts">
-            <label class="labelNameMenu" for="contacts">Contacts</label>
-          </div>
-
-          <div class="section">
-            <h2>Создать основной текстовый блок</h2>
-            <div class="wrap">
-              <div class="wrap-radio">
-                <input type="radio" id="textYes" name="mainText" checked>
-                <label for="textYes">Да</label>
-                <input type="radio" id="textNo" name="mainText">
-                <label for="textNo">Нет</label>
+          <div class="content-text">
+            <div class="section">
+              <h2>Создать основной текстовый блок</h2>
+              <div class="wrap">
+                <div class="wrap-radio">
+                  <input type="radio" id="textYes" name="mainText" checked>
+                  <label for="textYes">Да</label>
+                  <input type="radio" id="textNo" name="mainText">
+                  <label for="textNo">Нет</label>
+                </div>
+                <textarea name="" id="textArea" cols="30" rows="10"></textarea>
               </div>
-              <textarea name="" id="textArea" cols="30" rows="10"></textarea>
             </div>
           </div>
 
-          <div class="section">
-            <h2>Создать слайдер</h2>
-            <div class="radio-wrap-slider">
-              <input type="radio" id="sliderYes" name="slider">
-              <label for="sliderYes">Да</label>
-              <input type="radio" id="sliderNo" name="slider">
-              <label for="sliderNo">Нет</label>
-            </div>
 
+          <div class="sliders">
+            <div class="section">
+              <h2>Создать слайдер</h2>
+              <div class="radio-wrap-slider">
+                <input type="radio" id="sliderYes" name="slider">
+                <label for="sliderYes">Да</label>
+                <input type="radio" id="sliderNo" name="slider">
+                <label for="sliderNo">Нет</label>
+              </div>
+            </div>
             <div class="add-photos">
               <div class="input-list">
                 <div class="input-wrap-photo">
@@ -88,11 +102,17 @@
             </div>
           </div>
 
-          <div class="section">
-            <label for="bgColor">Основной цвет сайта</label>
-            <input type="color" id="bgColor" value="#68ca25">
-            <label for="textColor">Основной цвет текста</label>
-            <input type="color" id="textColor" value="#ffffff">
+          <div class="colors">
+            <div class="section">
+              <fieldset>
+                <label for="bgColor">Основной цвет сайта</label>
+                <input type="color" id="bgColor" value="#68ca25">
+              </fieldset>
+              <fieldset>
+                <label for="textColor">Основной цвет текста</label>
+                <input type="color" id="textColor" value="#ffffff">
+              </fieldset>
+            </div>
           </div>
           <div class="section">
             <input type="button" name="submit" id="submit" value="Отправить">
