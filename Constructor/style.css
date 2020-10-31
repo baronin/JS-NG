@@ -1,3 +1,6 @@
+:root {
+  --tablet: 768px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -78,8 +81,15 @@ label {
 }
 
 .section {
-  margin-top: 35px;
-  margin-bottom: 35px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+@media screen and (min-width: var(--tablet)) {
+  .section {
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
 }
 
 #listNav {
@@ -123,11 +133,12 @@ input[type='checkbox'] {
   margin: 0 auto;
   padding: 20px;
 }
-
 .app__header {
   display: grid;
   grid-template-columns: 100px 1fr;
   grid-gap: 20px;
+}
+@media screen and (min-width: var(--tablet)) {
 }
 
 .app__header h1 {
@@ -138,10 +149,13 @@ input[type='checkbox'] {
   display: flex;
 }
 
+.header .logo-wrap {
+  margin-right: 20px;
+}
+
 .logo-wrap {
   max-width: 100px;
   width: 100%;
-  padding-right: 30px;
 }
 
 .logo-wrap img {
@@ -167,8 +181,16 @@ input[type='checkbox'] {
 
 .main {
   display: grid;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media screen and (min-width: var(--tablet)) {
+  .main {
+    display: grid;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
 
 nav {
@@ -232,11 +254,12 @@ nav a:hover {
   width: 100%;
   margin-right: 5px;
 }
-
-.constructor {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+@media screen and (min-width: 600px) {
+  .constructor {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+  }
 }
 
 fieldset {
@@ -245,7 +268,8 @@ fieldset {
 }
 
 #submit,
-#reset {
+#reset,
+#addPhoto {
   padding: 10px;
   font-size: Aria;
   font-weight: 500;
@@ -255,11 +279,18 @@ fieldset {
   cursor: pointer;
 }
 #submit:hover,
-#reset:hover {
+#reset:hover,
+#addPhoto:hover {
   border-color: mediumslateblue;
   background-color: #6bb800;
 }
 
 .swiper-slide {
-  min-height: 60px;
+  min-height: 100px;
+  background-size: cover;
+  background-position: center;
+}
+
+.urlPhoto {
+  padding: 6px;
 }

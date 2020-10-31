@@ -7,7 +7,10 @@ let logoType = document.querySelector('#logoConstructor');
 let textArea = document.querySelector('#textArea');
 let bgColor = document.querySelector('#bgColor');
 let textColor = document.querySelector('#textColor');
-
+let submit = document.querySelector('#submit');
+let addPhotoBtn = document.querySelector('#addPhoto');
+let inputNoText = document.querySelector('#textNo');
+let inputYesText = document.querySelector('#textYes');
 let arraySliders = [];
 let swiperSliders = '';
 
@@ -17,15 +20,13 @@ const menuPositionClass = {
   right: 'nav-right',
 };
 
-let submit = document.querySelector('#submit');
-let addPhotoBtn = document.querySelector('#addPhoto');
-let inputNoText = document.querySelector('#textNo');
-let inputYesText = document.querySelector('#textYes');
 if (inputNoText) {
   inputNoText.addEventListener('click', function () {
     textArea.setAttribute('disabled', true);
+    inputNoText.setAttribute('disabled', true);
   });
 }
+
 if (inputYesText) {
   inputYesText.addEventListener('click', function () {
     if (textArea.getAttribute('disabled')) {
@@ -79,7 +80,6 @@ function getSliders() {
   let urlPhoto = document.querySelectorAll('.urlPhoto');
 
   if (urlPhoto) {
-    console.log(urlPhoto);
     urlPhoto.forEach(function (item) {
       console.log(item);
       if (item.value) {
@@ -158,7 +158,6 @@ function getData() {
   let swiperContainer = document.querySelector('.swiper-container');
 
   if (swiperContainer) {
-    console.log('swiperContainer ', swiperContainer);
     let mySwiper = new Swiper('.swiper-container', {
       loop: true,
 
@@ -170,27 +169,34 @@ function getData() {
     });
     setTimeout(function () {
       mySwiper.update();
-      console.log('update');
     }, 1000);
   }
 }
 
 if (submit) {
   submit.addEventListener('click', function () {
-    if (textArea.value || vinputNoText.getAttribute('disabled')) {
+    if (inputYesText.checked) {
+      if (textArea.value) {
+        getData();
+        body.style.backgroundColor = bgColor.value;
+        body.style.color = textColor.value;
+        return;
+      } else {
+        console.log(' else');
+        let wrapSelector = document.querySelector('.wrap');
+        let p = document.createElement('p');
+        p.style.color = 'red';
+        p.innerHTML = 'Заполните текст';
+        wrapSelector.appendChild(p);
+        setInterval(function () {
+          p.remove();
+        }, 1000);
+      }
+    } else if (inputNoText.getAttribute('disabled')) {
       getData();
       body.style.backgroundColor = bgColor.value;
       body.style.color = textColor.value;
-      return;
     }
-    let wrapSelector = document.querySelector('.wrap');
-    let p = document.createElement('p');
-    p.style.color = 'red';
-    p.innerHTML = 'Заполните текст';
-    wrapSelector.appendChild(p);
-    setInterval(function () {
-      p.remove();
-    }, 1000);
   });
 }
 
