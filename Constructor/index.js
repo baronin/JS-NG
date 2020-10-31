@@ -8,6 +8,9 @@ let textArea = document.querySelector('#textArea');
 let bgColor = document.querySelector('#bgColor');
 let textColor = document.querySelector('#textColor');
 
+let arraySliders = [];
+let swiperSliders = '';
+
 const menuPositionClass = {
   vertical: 'nav-vertical',
   left: 'nav-left',
@@ -72,19 +75,23 @@ function nav() {
   }
 }
 
-function addPhoto() {
-  let urls = [];
-
+function getSliders() {
   let urlPhoto = document.querySelectorAll('.urlPhoto');
+
   if (urlPhoto) {
+    console.log(urlPhoto);
     urlPhoto.forEach(function (item) {
+      console.log(item);
       if (item.value) {
-        console.log(item.value);
-        urls.push(item.value);
+        arraySliders.push(item.value);
       }
     });
   }
-  return `<div class='swiper-slide' style='background-image="url(${urls})"'>test</div>`;
+  for (let i = 0; i < arraySliders.length; i++) {
+    swiperSliders += `<div class="swiper-slide" style="background-image: url(${arraySliders[i]})"></div>`;
+  }
+
+  return swiperSliders;
 }
 
 function content() {
@@ -96,14 +103,16 @@ function content() {
       contentText = textArea.value;
     }
   });
+
   return `
     <div class="content">
       <p>${contentText}</p>
-
       <div class="swiper-container swiper-custom-wrap">
           <div class="swiper-wrapper">
-            ${addPhoto()}
+            ${getSliders()}
           </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
       </div>
     </div>
   `;
@@ -146,11 +155,29 @@ function getData() {
    `;
     app.innerHTML = htmlPage;
   }
+  let swiperContainer = document.querySelector('.swiper-container');
+
+  if (swiperContainer) {
+    console.log('swiperContainer ', swiperContainer);
+    let mySwiper = new Swiper('.swiper-container', {
+      loop: true,
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    setTimeout(function () {
+      mySwiper.update();
+      console.log('update');
+    }, 1000);
+  }
 }
 
 if (submit) {
   submit.addEventListener('click', function () {
-    if (textArea.value) {
+    if (textArea.value || vinputNoText.getAttribute('disabled')) {
       getData();
       body.style.backgroundColor = bgColor.value;
       body.style.color = textColor.value;
@@ -181,19 +208,5 @@ if (addPhotoBtn) {
     inputEl.setAttribute('placeholder', 'Введите URL изображения');
     innerWrapPhotoEl.appendChild(inputEl);
     inputListSelector.appendChild(innerWrapPhotoEl);
-  });
-}
-
-let swiperContainer = document.querySelector('.swiper-container');
-
-if (swiperContainer) {
-  let mySwiper = new Swiper('.swiper-container', {
-    loop: true,
-
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
   });
 }
