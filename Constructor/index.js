@@ -32,6 +32,7 @@ if (inputNoText) {
 }
 
 if (inputYesText) {
+  enableSlider = true;
   inputYesText.addEventListener('click', function () {
     enableSlider = true;
     if (textArea.getAttribute('disabled')) {
