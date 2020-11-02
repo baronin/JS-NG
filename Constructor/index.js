@@ -58,13 +58,9 @@ if (inputSliderNo) {
 }
 
 function header(logo, slogan, desc) {
-  let imgLogo;
-
-  if (logo) {
-    imgLogo = `<div class="logo-wrap"><img src="${logo}" alt="logotype"></div>`;
-  } else {
-    imgLogo = ``;
-  }
+  const imgLogo = logo
+    ? `<div class="logo-wrap"><img src="${logo}" alt="logotype"></div>`
+    : '';
   return `
     <header class="header">
       ${imgLogo}
@@ -87,28 +83,16 @@ function nav() {
       });
     }
   });
-  if (menuLinks) {
-    return `
-    <nav>
-      ${menuLinks}
-    </nav>
-  `;
-  } else {
-    return ' ';
-  }
+  return menuLinks ? `<nav>${menuLinks}</nav>` : '';
 }
 
 function getSliders() {
   let urlPhoto = document.querySelectorAll('.urlPhoto');
-
-  if (urlPhoto) {
-    urlPhoto.forEach(function (item) {
-      console.log(item);
-      if (item.value) {
-        arraySliders.push(item.value);
-      }
-    });
-  }
+  urlPhoto?.forEach?.((item) => {
+    if (item?.value) {
+      arraySliders.push(item.value);
+    }
+  });
   for (let i = 0; i < arraySliders.length; i++) {
     swiperSliders += `<div class="swiper-slide" style="background-image: url(${arraySliders[i]})"></div>`;
   }
@@ -117,25 +101,22 @@ function getSliders() {
 }
 
 function swiperSection() {
-  if (enableSlider) {
-    return `
-    <div class="swiper-container swiper-custom-wrap">
-      <div class="swiper-wrapper">
-        ${getSliders()}
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>`;
-  } else {
-    return '';
-  }
+  return enableSlider
+    ? `<div class="swiper-container swiper-custom-wrap">
+        <div class="swiper-wrapper">
+          ${getSliders()}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>`
+    : '';
 }
 
 function content() {
   const wrapRadio = document.querySelector('.wrap-radio');
   let inputsRadio = wrapRadio.querySelectorAll('input[name="mainText"]');
   let contentText = '';
-  inputsRadio.forEach(function (item) {
+  inputsRadio?.forEach(function (item) {
     if (item.checked) {
       contentText = textArea.value;
     }
@@ -204,45 +185,45 @@ function getData() {
   }
 }
 
-if (submit) {
-  submit.addEventListener('click', function () {
-    if (inputYesText.checked) {
-      if (textArea.value) {
-        getData();
-        body.style.backgroundColor = bgColor.value;
-        body.style.color = textColor.value;
-        return;
-      } else {
-        let wrapSelector = document.querySelector('.wrap');
-        let p = document.createElement('p');
-        p.style.color = 'red';
-        p.innerHTML = 'Заполните текст';
-        wrapSelector.appendChild(p);
-        setInterval(function () {
-          p.remove();
-        }, 1000);
-      }
-    } else if (inputNoText.getAttribute('disabled')) {
+const sendForm = () => {
+  if (inputYesText.checked) {
+    if (textArea.value) {
       getData();
       body.style.backgroundColor = bgColor.value;
       body.style.color = textColor.value;
+      return;
+    } else {
+      let wrapSelector = document.querySelector('.wrap');
+      let p = document.createElement('p');
+      p.style.color = 'red';
+      p.innerHTML = 'Заполните текст';
+      wrapSelector.appendChild(p);
+      setInterval(function () {
+        p.remove();
+      }, 1000);
     }
-  });
-}
+  } else if (inputNoText.getAttribute('disabled')) {
+    getData();
+    body.style.backgroundColor = bgColor.value;
+    body.style.color = textColor.value;
+  }
+};
 
-if (addPhotoBtn) {
+const addInputToSlideImg = () => {
   let inputListSelector = document.querySelector('.input-list');
 
-  addPhotoBtn.addEventListener('click', function () {
-    let innerWrapPhotoEl = document.createElement('div');
-    innerWrapPhotoEl.classList.add('input-wrap-photo');
-    let labelEl = document.createElement('label');
-    labelEl.innerHTML = '-';
-    innerWrapPhotoEl.appendChild(labelEl);
-    let inputEl = document.createElement('input');
-    inputEl.classList.add('urlPhoto');
-    inputEl.setAttribute('placeholder', 'Введите URL изображения');
-    innerWrapPhotoEl.appendChild(inputEl);
-    inputListSelector.appendChild(innerWrapPhotoEl);
-  });
-}
+  let innerWrapPhotoEl = document.createElement('div');
+  innerWrapPhotoEl.classList.add('input-wrap-photo');
+  let labelEl = document.createElement('label');
+  labelEl.innerHTML = '-';
+  innerWrapPhotoEl.appendChild(labelEl);
+  let inputEl = document.createElement('input');
+  inputEl.classList.add('urlPhoto');
+  inputEl.setAttribute('placeholder', 'Введите URL изображения');
+  innerWrapPhotoEl.appendChild(inputEl);
+  inputListSelector.appendChild(innerWrapPhotoEl);
+};
+
+addPhotoBtn?.addEventListener('click', addInputToSlideImg);
+
+submit?.addEventListener('click', sendForm);
