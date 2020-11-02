@@ -11,7 +11,10 @@ let submit = document.querySelector('#submit');
 let addPhotoBtn = document.querySelector('#addPhoto');
 let inputNoText = document.querySelector('#textNo');
 let inputYesText = document.querySelector('#textYes');
+let inputSliderYes = document.querySelector('#sliderYes');
+let inputSliderNo = document.querySelector('#sliderNo');
 let arraySliders = [];
+let enableSlider = false;
 let swiperSliders = '';
 
 const menuPositionClass = {
@@ -22,6 +25,7 @@ const menuPositionClass = {
 
 if (inputNoText) {
   inputNoText.addEventListener('click', function () {
+    enableSlider = false;
     textArea.setAttribute('disabled', true);
     inputNoText.setAttribute('disabled', true);
   });
@@ -29,9 +33,26 @@ if (inputNoText) {
 
 if (inputYesText) {
   inputYesText.addEventListener('click', function () {
+    enableSlider = true;
     if (textArea.getAttribute('disabled')) {
       textArea.removeAttribute('disabled');
     }
+  });
+}
+
+if (inputSliderYes) {
+  inputSliderYes.addEventListener('click', function () {
+    enableSlider = true;
+    if (addPhotoBtn.disabled) {
+      addPhotoBtn.removeAttribute('disabled');
+    }
+  });
+}
+
+if (inputSliderNo) {
+  inputSliderNo.addEventListener('click', function () {
+    enableSlider = false;
+    addPhotoBtn.setAttribute('disabled', true);
   });
 }
 
@@ -94,6 +115,21 @@ function getSliders() {
   return swiperSliders;
 }
 
+function swiperSection() {
+  if (enableSlider) {
+    return `
+    <div class="swiper-container swiper-custom-wrap">
+      <div class="swiper-wrapper">
+        ${getSliders()}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>`;
+  } else {
+    return '';
+  }
+}
+
 function content() {
   const wrapRadio = document.querySelector('.wrap-radio');
   let inputsRadio = wrapRadio.querySelectorAll('input[name="mainText"]');
@@ -107,13 +143,7 @@ function content() {
   return `
     <div class="content">
       <p>${contentText}</p>
-      <div class="swiper-container swiper-custom-wrap">
-          <div class="swiper-wrapper">
-            ${getSliders()}
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-      </div>
+      ${swiperSection()}
     </div>
   `;
 }
@@ -182,7 +212,6 @@ if (submit) {
         body.style.color = textColor.value;
         return;
       } else {
-        console.log(' else');
         let wrapSelector = document.querySelector('.wrap');
         let p = document.createElement('p');
         p.style.color = 'red';

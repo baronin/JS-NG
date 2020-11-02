@@ -102,7 +102,6 @@ input[type='checkbox'] + label {
   background-size: contain;
   cursor: pointer;
   height: 17px;
-  display: f;
 }
 input[type='checkbox']:checked + label {
   background: url('img/checkbox_on.png') transparent no-repeat;
