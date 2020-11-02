@@ -102,6 +102,7 @@ input[type='checkbox'] + label {
   background-size: contain;
   cursor: pointer;
   height: 17px;
+  display: f;
 }
 input[type='checkbox']:checked + label {
   background: url('img/checkbox_on.png') transparent no-repeat;
@@ -130,6 +131,7 @@ input[type='checkbox'] {
 
 /* other styles */
 .app {
+  max-width: 768px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -265,24 +267,6 @@ nav a:hover {
 fieldset {
   margin-bottom: 15px;
   border: none;
-}
-
-#submit,
-#reset,
-#addPhoto {
-  padding: 10px;
-  font-size: Aria;
-  font-weight: 500;
-  background-color: #fff;
-  border: 1px solid gainsboro;
-  border-radius: 3px;
-  cursor: pointer;
-}
-#submit:hover,
-#reset:hover,
-#addPhoto:hover {
-  border-color: mediumslateblue;
-  background-color: #6bb800;
 }
 
 .swiper-slide {
